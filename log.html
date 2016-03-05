@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function show()
+        {
+            var name = document.getElementById('uname');
+            var pass = document.getElementById('pass');
+            var span1 = document.getElementById('s1');
+            span1.innerHTML = name.value;
+            var span2 = document.getElementById('s2');
+            span2.innerHTML = pass.value;
+        }
+        function Validate(inputText) {
+            var para = document.getElementById('p1');
+
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (inputText.value.match(mailformat)) {
+                para.style.visibility = 'visible';
+            }
+            else {
+                alert("You have entered an invalid email address!");
+                document.form1.text1.focus();
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <span id="s1"></span><br />
+    <span id="s2"></span>
+    <form name="form1" action="/" method="post">
+        Username : <input type="text" name="text1" id="uname" onblur="Validate(document.form1.text1)" /><br />
+        <p id="p1" style="visibility:hidden">Password : <input type="password" id="pass"  onblur="show()" /><br /></p>
+        <input type="submit" id="sub" value="Submit" />
+    </form>
+</body>
+</html>
